@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 
-import { Database } from "types/supabase"
+import { Database } from "~/types/supabase"
 import useExternalRedirect from "~/composables/useExternalRedirect"
 
 const params = useRoute().params;
@@ -13,10 +13,10 @@ let { data } = useAsyncData('links', async () => {
 
 onMounted(() => {
   if (data) {
-  if (data.value?.original_link) {
-    useExternalRedirect(data.value?.original_link, 302);
+    if (data.value?.original_link) {
+      useExternalRedirect(data.value?.original_link, 302);
+    }
   }
-}
-}) 
+})
 
 </script>

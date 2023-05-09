@@ -1,41 +1,39 @@
 <script lang="ts" setup>
 
-  definePageMeta({
-    middleware: ['auth'],
-  })
+definePageMeta({
+  middleware: ['auth'],
+})
 
-  const client = useSupabaseClient();
+const client = useSupabaseClient();
 
-  const show = ref<Boolean>(true);
+const show = ref<Boolean>(true);
 
-  const form = reactive({
-    email: "",
-    password: "",
-    error: "",
-  })
+const form = reactive({
+  email: "",
+  password: "",
+  error: "",
+})
 
-  const handleSignUpWithEmail = async () => {
-    try{ 
-      const {data , error} = await client.auth.signUp({
-        email: form.email,
-        password: form.password,
-      });
+const handleSignUpWithEmail = async () => {
+  try {
+    const { data, error } = await client.auth.signUp({
+      email: form.email,
+      password: form.password,
+    });
 
-      if (error) {
+    if (error) {
       form.error = error.message;
       return;
     }
-console.log(data)
-    console.log(error)
 
     if (data) {
       form.error = "";
-      // useRouter().push("/dashboard");
     }
-    } catch (e) {
-      alert("Something went wrong.")
-    }
+
+  } catch (e) {
+    alert("Something went wrong.")
   }
+}
 
 </script>
 
@@ -64,7 +62,7 @@ console.log(data)
                 <div class="mx-auto max-w-lg">
                   <div class="py-2">
                     <span class="px-1 text-sm text-gray-600">Email</span>
-                    <input v-model="form.email"  placeholder="" type="email"
+                    <input v-model="form.email" placeholder="" type="email"
                       class="text-md block px-3 py-2 rounded-lg w-full bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
                   </div>
                   <div class="py-2">
