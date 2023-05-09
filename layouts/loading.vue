@@ -1,7 +1,3 @@
 <template>
-  <div>
-    <TheHeader />
-    <slot />
-    <Nuxt />
-  </div>
+    <slot></slot>
 </template>

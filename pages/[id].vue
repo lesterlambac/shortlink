@@ -1,7 +1,11 @@
 <script lang="ts" setup>
 
-import { Database } from "~/types/supabase"
+definePageMeta({
+  layout: 'loading',
+})
+
 import useExternalRedirect from "~/composables/useExternalRedirect"
+import { Database } from "~/types/supabase"
 
 const params = useRoute().params;
 const client = useSupabaseClient<Database>();
@@ -18,5 +22,7 @@ onMounted(() => {
     }
   }
 })
-
 </script>
+
+<template>
+</template>
