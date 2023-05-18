@@ -39,6 +39,37 @@ export interface Database {
           user_id?: string | null
         }
       }
+      clicks: {
+        Row: {
+          created_at: string | null
+          id: number
+          link_id: number | null
+          count: string | null
+          ip: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: number
+          link_id?: number | null
+          count?: string | null
+          ip?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: number
+          link_id?: number | null
+          count?: string | null
+          ip?: string | null
+        }
+        Delete: {
+          created_at?: string | null
+          id?: number
+          link_id?: number | null
+          count?: string | null
+          ip?: string | null
+        }
+      }
       profiles: {
         Row: {
           avatar_url: string | null

@@ -16,6 +16,7 @@ export default defineNuxtConfig({
 
     public: {
       baseUrl: process.env.NODE_ENV == 'development' ? 'http://localhost:3000/' : process.env.WEBSITE_URL,
+      geoApiKey: '',
     }
   }
 })
